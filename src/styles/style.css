@@ -1,3 +1,11 @@
+body {
+  font-family: 'Commissioner', sans-serif !important;
+}
+
+h1, h2, .navbar-brand {
+  font-family: 'Merriweather Sans', sans-serif !important;
+}
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -33,9 +41,49 @@ footer p {
 }
 
 .logo {
-  height: 5vmin;
+  height: 7vmin;
+  pointer-events: all;
 }
 
 .site-title {
   padding: 1vmin;
+}
+
+.logo:hover {
+  animation: App-logo-spin infinite 10s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.background-party {
+  background-image: url(../images/bg.jpg);
+	height: 70vmin;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.jumbotron .container {
+  max-width: 1140px !important;
+}
+
+.jumbotron .container .welcome {
+  bottom: 20vmin;
+  position: absolute;
+  width: 100%;
+}
+
+.jumbotron .container .welcome h1, .jumbotron .container .welcome h4  {
+  background-color: rgba(255, 230, 90, .5);
+  padding: 10px;
+  border-radius: 50px;
+  color: #FFF;
 }
