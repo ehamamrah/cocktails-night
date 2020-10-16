@@ -1,18 +1,19 @@
 import React from 'react';
 import '../styles/App.css';
+import '../styles/style.css';
 import Footer from './design/footer';
 import Header from './design/header';
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
+    <>
+      <header>
         <Header />
-      </div>
-      <div className="row">
+      </header>
+      <footer className='text-muted'>
         <Footer />
-      </div>
-    </div>
+      </footer>
+    </>
   );
 }
 

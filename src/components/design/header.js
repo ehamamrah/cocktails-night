@@ -1,16 +1,15 @@
 import React from 'react';
 import logo from '../../images/logo.svg';
-import '../../styles/App.css';
 
 function Header() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="Cheerz!" title="Cheerz!" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+    <div className="navbar navbar-dark bg-dark shadow-sm">
+      <div className="container d-flex justify-content-between">
+        <a href="#" className="navbar-brand d-flex align-items-center">
+          <img src={logo} className="App-logo logo" alt="Cheerz!" title="Cheerz!" />
+          <strong className='site-title'>The Cocktails Night</strong>
+        </a>
+      </div>
     </div>
   );
 }
