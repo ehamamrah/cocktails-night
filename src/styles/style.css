@@ -11,7 +11,11 @@ h1, h2, .navbar-brand {
   padding-bottom: 3rem;
   margin-bottom: 0;
   background-color: #fff;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: #6c757d .12rem solid;
 }
+
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: 6rem;
@@ -34,6 +38,7 @@ h1, h2, .navbar-brand {
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  border-top: #6c757d .05rem solid;
 }
 
 footer p {
@@ -86,4 +91,8 @@ footer p {
   padding: 10px;
   border-radius: 50px;
   color: #FFF;
+}
+
+.card {
+  border-radius: 25px;
 }

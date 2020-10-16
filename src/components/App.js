@@ -4,6 +4,7 @@ import '../styles/style.css';
 import Footer from './design/footer';
 import Header from './design/header';
 import Carousel from './design/carousel';
+import Collector from './design/container';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       </header>
       <main role="main">
         <Carousel />
+        <Collector />
       </main>
       <footer className='text-muted'>
         <Footer />
