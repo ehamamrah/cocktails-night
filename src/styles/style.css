@@ -83,7 +83,7 @@ footer p {
 .jumbotron .container .welcome {
   bottom: 20vmin;
   position: absolute;
-  width: 100%;
+  width: 145vmin;
 }
 
 .jumbotron .container .welcome h1, .jumbotron .container .welcome h4  {
