@@ -16,7 +16,7 @@ function App() {
         <Carousel />
         <Collector />
       </main>
-      <footer className='text-muted'>
+      <footer className='bg-dark text-muted'>
         <Footer />
       </footer>
     </>

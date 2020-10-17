@@ -93,6 +93,6 @@ footer p {
   color: #FFF;
 }
 
-.card {
-  border-radius: 25px;
+.card-img, .card-img-bottom, .card-img-top {
+  width: 75% !important;
 }
