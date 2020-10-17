@@ -3,8 +3,8 @@ import '../../styles/App.css';
 
 function Footer() {
   return (
-    <div class="container">
-      <p class="float-right">
+    <div className="container">
+      <p className="float-right">
         <a href="#top" className="btn btn-sm btn-outline-danger">Back to top</a>
       </p>
       <p>Cheerz!, Just another project</p>

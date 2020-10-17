@@ -1,59 +1,59 @@
 import React from 'react';
+import axios from 'axios';
 
-function Collector() {
-  return (
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-warning">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-warning">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-warning">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  );
+function GetDrink(drink_name='') {
+  const drink_details_link = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink_name;
+  axios.get(drink_details_link)
+    .then(res => {
+      const details = res.data;
+      const drink_details = details['drinks'][0];
+      return drink_details;
+    })
 }
 
-export default Collector;
+export default class Collector extends React.Component {
+  state={
+    drinks: [],
+    drinks_details: ''
+  };
+
+  componentDidMount() {
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`)
+      .then(res => {
+        const drinks = res.data['drinks'];
+        this.setState({ drinks });
+      })
+  }
+
+  render() {
+    return (
+      <>
+      <div className="container">
+        <div className="row">
+          { this.state.drinks.map(drink => <div className="album py-5 bg-light">
+            {/* { const drink_details = GetDrink(drink.strDrink) } */}
+            <div className="col-md-4">
+                  <div className="card mb-4 shadow-sm">
+                    <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={drink.strDrinkThumb} role="img" aria-label="Placeholder: Thumbnail" />
+                    <div className="card-body">
+                    <h5 className="card-title">{drink.strDrink}</h5>
+                    <h6>{this.drink_details}</h6>
+                    {/* <h6 className="card-subtitle mb-2 text-muted">{this.drink_details.strAlcoholic}</h6> */}
+                      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
+                          <button type="button" className="btn btn-sm btn-outline-warning">Read More ..</button>
+                        </div>
+                        <small className="text-muted"></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          )}
+        </div>
+      </div>
+      </>
+    );
+  }
+}
